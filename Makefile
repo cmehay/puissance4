@@ -6,7 +6,7 @@
 #    By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/03/08 10:47:52 by cmehay            #+#    #+#              #
-#    Updated: 2014/03/08 11:57:59 by cmehay           ###   ########.fr        #
+#    Updated: 2014/03/08 23:47:19 by cmehay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ NAME = puissance4
 CC = clang
 INCLUDES = -I ./srcs/ -I ./libft/includes/
 CFLAGS = -g -Wall -Wextra -Werror $(INCLUDES)
-LDFLAGS = -L ./srcs/ -lft
+LDFLAGS = -L ./libft/ -lft
 HEADERFILES = ./srcs/puissance4.h
 SRCSDIR = ./srcs/
 SRCS = $(addprefix $(SRCSDIR), $(SRCSFILES))
-SRCSFILES = main.c
+SRCSFILES = main.c display.c play.c game.c detect_line.c error.c
 OBJS = $(SRCS:.c=.o)
 LIBFT = libft/libft.a
 

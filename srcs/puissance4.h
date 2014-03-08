@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 10:53:13 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/08 18:03:48 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/08 23:37:19 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 #define MAX_COL 7
 #define MAX_ROW 6
+
+#define PLAYER_1_PAWN 'x'
+#define PLAYER_2_PAWN 'o'
 
 #define MSG_TO_PLAYER "Ok, it's your turn"
 #define MSG_AI_HAS_PLAYED "AI has played :)"
@@ -34,10 +37,10 @@ typedef enum	e_slot
 	PLAYER2
 }				t_slot;
 
-typedef strcut	s_pos
+typedef struct	s_pos
 {
-	unsigned int	col;
-	unsigned int	row;
+	int	col;
+	int	row;
 }				t_pos;
 
 typedef struct	s_grid
@@ -47,19 +50,38 @@ typedef struct	s_grid
 
 typedef struct	s_game
 {
-	unsigned int	col;
-	unsigned int	row;
-	unsigned int	wide;
-	t_slot			ai;
-	t_grid			**grid;
+	int		wide;
+	t_pos	pos;
+	t_slot	ai;
+	t_grid	**grid;
 }				t_game;
+
+/*
+** detect_line.c
+*/
+int		game_is_over(t_game *game);
+
+/*
+** display.c
+*/
+void	display_grid(t_game *game);
 
 /*
 ** error.c
 */
-void	*game_error(char *str, void *rtn);
+void	*dsp_error(char *str, void *rtn);
+
+/*
+** game.c
+*/
+t_game	*init_game(char *col, char *row);
 
 /*
 ** grid.c
 */
 t_game	*init_grid(char *col, char *row);
+
+/*
+** play.c
+*/
+void	play(t_game *game, int turn);
