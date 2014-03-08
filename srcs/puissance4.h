@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 10:53:13 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/08 11:57:57 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/08 14:36:00 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #define MSG_PLAYER_WIN "Ok... you win"
 #define MSG_AI_WIN "Haha! I win"
 #define MSG_DREW "Well done, I didn't win, but neither did you :p"
+#define MSG_RULES "Please set a correct grid size\nUsage: puissance4 col row"
 
 typedef enum	e_slot
 {
@@ -44,3 +45,13 @@ typedef struct	s_dsp
 	t_slot			ai;
 	t_game			**game;
 }				t_dsp;
+
+/*
+** error.c
+*/
+void	*dsp_error(char *str, void *rtn);
+
+/*
+** game.c
+*/
+t_dsp	*init_game(char *col, char *row);
