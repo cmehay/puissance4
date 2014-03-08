@@ -6,13 +6,13 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 14:04:01 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/08 15:28:08 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/08 18:34:50 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "puissance4.h"
 
-t_game	*init_grid(char *col, char *row)
+t_game	*init_game(char *col, char *row)
 {
 	static t_game	*game;
 	int				i;
@@ -21,9 +21,9 @@ t_game	*init_grid(char *col, char *row)
 		game = (t_game*)cool_malloc(sizeof(t_game));
 	if (game && col && row)
 	{
-		game->col = ft_atoi(col);
-		game->row = ft_atoi(row);
-		if (game->col < MAX_COL || game->row < MAX_ROW)
+		game->pos.col = ft_atoi(col);
+		game->pos.row = ft_atoi(row);
+		if (game->pos.col < MAX_COL || game->pos.row < MAX_ROW)
 			return (game_error(MSG_RULES, NULL));
 		game->grid = (t_grid**)cool_malloc(sizeof(t_grid*) * game->col);
 		game->ai = (rand() % 2) + 1;
@@ -34,7 +34,7 @@ t_game	*init_grid(char *col, char *row)
 	return (game);
 }
 
-int		grid_is_over(t_game	*game)
+int		game_is_over(t_game *game)
 {
-	
+
 }

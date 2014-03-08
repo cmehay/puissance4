@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 10:53:13 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/08 15:28:06 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/08 18:03:48 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ typedef enum	e_slot
 	PLAYER1,
 	PLAYER2
 }				t_slot;
+
+typedef strcut	s_pos
+{
+	unsigned int	col;
+	unsigned int	row;
+}				t_pos;
 
 typedef struct	s_grid
 {
