@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/09 02:08:10 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/09 21:35:06 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/09 22:54:52 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	check_slot(t_game *game, t_slot player, int col)
 	};
 
 	i = -1;
-	while (!game->grid[col][++i].slot && i < game->pos.row)
+	while (++i < game->pos.row && !game->grid[col][i].slot)
 		;
 	if (!i--)
 		return (0);

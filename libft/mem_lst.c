@@ -6,16 +6,18 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/29 11:23:20 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/08 10:32:06 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/09 22:59:04 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_alloc_lst	*gimme_ptr_lst(void)
+static t_alloc_lst	*gimme_ptr_lst(t_bool reset)
 {
 	static t_alloc_lst	*lst = NULL;
 
+	if (reset)
+		return ((lst = NULL));
 	if (!lst)
 	{
 		lst = (t_alloc_lst*)malloc(sizeof(t_alloc_lst));
@@ -36,7 +38,7 @@ void				add_to_lst(void *ptr)
 	new_item = (t_alloc_lst*)malloc(sizeof(t_alloc_lst));
 	new_item->ptr = (ssize_t)ptr;
 	new_item->next = NULL;
-	current_lst = gimme_ptr_lst();
+	current_lst = gimme_ptr_lst(FALSE);
 	while (current_lst->next)
 		current_lst = current_lst->next;
 	current_lst->next = new_item;
@@ -63,7 +65,7 @@ void				cool_free(void *ptr)
 	t_alloc_lst	*lst;
 	t_alloc_lst	*prev;
 
-	lst = gimme_ptr_lst();
+	lst = gimme_ptr_lst(FALSE);
 	while (lst->next)
 	{
 		if (lst->ptr == (ssize_t)ptr)
@@ -90,7 +92,7 @@ void				cool_free(void *ptr)
 void				free_for_all(t_alloc_lst *lst)
 {
 	if (!lst)
-		lst = gimme_ptr_lst();
+		lst = gimme_ptr_lst(FALSE);
 	if (lst->next)
 		free_for_all(lst->next);
 	if (lst->ptr && lst->ptr != -1)
@@ -99,5 +101,8 @@ void				free_for_all(t_alloc_lst *lst)
 		free(lst);
 	}
 	else
-		lst->next = NULL;
+	{
+		free(lst);
+		gimme_ptr_lst(TRUE);
+	}
 }

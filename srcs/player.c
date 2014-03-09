@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/09 02:08:14 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/09 03:25:21 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/09 22:56:28 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	player_move(t_game *game, t_slot player)
 	while (!ok)
 	{
 		ft_putstr(MSG_KEY_INPUT);
-		get_next_line(0, &input);
+		cool_next_line(0, &input);
 		if (!input || !ft_strtest(input, ft_isdigit))
 		{
 			ft_putendl(MSG_COL_WRONG);
