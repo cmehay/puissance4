@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 14:04:01 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/09 15:07:27 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/09 23:07:31 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_game	*init_game(char *col, char *row)
 		game->pos.col = ft_atoi(col);
 		game->pos.row = ft_atoi(row);
 		if (game->pos.col < MAX_COL || game->pos.row < MAX_ROW)
-			return (dsp_error(MSG_RULES, NULL));
+			return (NULL);
 		game->wide = ft_strlen(col) + !(ft_strlen(col) % 2);
 		game->grid = (t_grid**)cool_malloc(sizeof(t_grid*) * game->pos.col);
 		if (!game->grid)
