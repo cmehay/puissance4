@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 10:53:13 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/09 03:19:49 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/09 16:53:37 by svermeer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,8 @@
 #define MAX_COL 7
 #define MAX_ROW 6
 
-#define PLAYER_1_PAWN "\033[30mo\033[0m"
-#define PLAYER_2_PAWN "\033[33mo\033[0m"
-
-//#define PLAYER_1_PAWN "x"
-//#define PLAYER_2_PAWN "o"
+#define PLAYER_1_PAWN "x"
+#define PLAYER_2_PAWN "o"
 
 #define MSG_TO_PLAYER "Ok, it's your turn"
 #define MSG_AI_HAS_PLAY "I play in "
@@ -74,6 +71,28 @@ typedef struct	s_game
 ** ai.c
 */
 void	ai_move(t_game *game, t_slot player);
+int		check_grid(t_game *game, int col, int *solution, int *j);
+int		find_situation(t_game *game, int *solution, int *j);
+int		check_res(int p[2]);
+
+/*
+** check_col.c
+*/
+int		check_col(t_game *game, int col, int row, int p[2]);
+
+/*
+** check_diag.c
+*/
+int		check_diag_up_left(t_game *game, int col, int row, int p[2]);
+int		check_diag_up_right(t_game *game, int col, int row, int p[2]);
+int		check_diag_down_left(t_game *game, int col, int row, int p[2]);
+int		check_diag_down_right(t_game *game, int col, int row, int p[2]);
+
+/*
+** check_row.c
+*/
+int		check_right_row(t_game *game, int col, int row, int p[2]);
+int		check_left_row(t_game *game, int col, int row, int p[2]);
 
 /*
 ** detect_line.c
