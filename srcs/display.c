@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 19:21:06 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/09 00:20:21 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/09 03:10:43 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ static void	display_col_number(t_game *game, t_pos pos)
 static void	display_pawn(t_game *game, t_pos pos)
 {
 	int		i;
-	char	pawn;
+	char	*pawn;
 
-	if (game->grid[pos.col - 1][pos.row].slot == PLAYER1)
+	if (game->grid[pos.col - 1][pos.row - 1].slot == PLAYER1)
 		pawn = PLAYER_1_PAWN;
-	else if (game->grid[pos.col - 1][pos.row].slot == PLAYER1)
+	else if (game->grid[pos.col - 1][pos.row - 1].slot == PLAYER2)
 		pawn = PLAYER_2_PAWN;
 	else
-		pawn = ' ';
+		pawn = " ";
 	i = -1;
 	while (++i < game->wide)
 	{
 		if (i == (game->wide / 2))
-			ft_putchar(pawn);
+			ft_putstr(pawn);
 		else
 			ft_putchar(' ');
 	}

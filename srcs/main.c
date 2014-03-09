@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 10:53:04 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/08 23:49:50 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/09 03:11:46 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int	main(int argc, char **argv)
 	if (argc != 3 || !(game = init_game(argv[1], argv[2])))
 		return ((int)dsp_error(MSG_RULES, (void*)1));
 	turn = 0;
-	play(game, turn);
-	end = 1;
-	// while (!(end = game_is_over(game)))
-	// {
-	// 	turn++;
-	// }
+	while (!(end = game_is_over(game)))
+	{
+		play(game, turn);
+		turn++;
+	}
+	display_grid(game);
 	if (end == -1)
 		ft_putendl(MSG_DREW);
 	else if (end == game->ai)
