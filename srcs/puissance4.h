@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 10:53:13 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/09 03:19:49 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/09 15:22:05 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,8 @@
 #define MAX_COL 7
 #define MAX_ROW 6
 
-#define PLAYER_1_PAWN "\033[30mo\033[0m"
-#define PLAYER_2_PAWN "\033[33mo\033[0m"
-
-//#define PLAYER_1_PAWN "x"
-//#define PLAYER_2_PAWN "o"
+#define PLAYER_1_PAWN "x"
+#define PLAYER_2_PAWN "o"
 
 #define MSG_TO_PLAYER "Ok, it's your turn"
 #define MSG_AI_HAS_PLAY "I play in "

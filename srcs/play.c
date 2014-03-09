@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 19:08:38 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/09 02:59:41 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/09 15:25:02 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 t_play			add_pawn(t_game *game, int col, t_slot player)
 {
 	int	i;
+
 	if (col < 1 || col > game->pos.col)
 		return (WRONG);
 	if (game->grid[col - 1][0].slot)
 		return (FULL);
 	i = -1;
-	while (!game->grid[col - 1][++i].slot)
+	while (!game->grid[col - 1][++i].slot && i < game->pos.row)
 		;
+	ft_putnbr(i);ft_putchar('\n');
 	game->grid[col - 1][--i].slot = player;
 	return (OK);
 }

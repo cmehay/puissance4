@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 14:04:01 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/09 02:03:02 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/09 15:07:27 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,14 @@ t_game	*init_game(char *col, char *row)
 			return (dsp_error(MSG_RULES, NULL));
 		game->wide = ft_strlen(col) + !(ft_strlen(col) % 2);
 		game->grid = (t_grid**)cool_malloc(sizeof(t_grid*) * game->pos.col);
+		if (!game->grid)
+			return (NULL);
 		game->ai = (rand() % 2) + 1;
 		i = game->pos.col;
 		while (i--)
-			game->grid[i] =
-			(t_grid*)cool_malloc(sizeof(t_grid) * game->pos.row);
+			if (!(game->grid[i] =
+			(t_grid*)cool_malloc(sizeof(t_grid) * game->pos.row)))
+				return (NULL);
 	}
 	return (game);
 }
