@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 16:05:29 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/08 10:34:07 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/09 18:56:03 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,10 @@ char	**ft_strsplit(char const *s, char c);
 int		get_next_line(int const fd, char **line);
 int		ft_strtest(char *str, int (*f)(int));
 char	*ft_strrep(char *s1, char *s2, char *str);
+int		ft_higher(int *array, int len);
+int		ft_higher_idx(int *array, int len);
+int		ft_lower(int *array, int len);
+int		ft_lower_idx(int *array, int len);
 
 /*
 ** mem_lst.c

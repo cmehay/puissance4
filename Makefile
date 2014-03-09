@@ -6,7 +6,7 @@
 #    By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/03/08 10:47:52 by cmehay            #+#    #+#              #
-#    Updated: 2014/03/09 02:56:36 by cmehay           ###   ########.fr        #
+#    Updated: 2014/03/09 20:07:43 by cmehay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ LDFLAGS = -L ./libft/ -lft
 HEADERFILES = ./srcs/puissance4.h
 SRCSDIR = ./srcs/
 SRCS = $(addprefix $(SRCSDIR), $(SRCSFILES))
-SRCSFILES = main.c display.c play.c game.c detect_line.c error.c ai.c player.c
+SRCSFILES = main.c display.c play.c game.c detect_line.c error.c ai.c player.c \
+	check_slot_left.c check_slot_low.c check_slot_right.c
 OBJS = $(SRCS:.c=.o)
 LIBFT = libft/libft.a
 

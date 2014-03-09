@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 10:53:13 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/09 15:22:05 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/09 20:08:22 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,35 @@ typedef struct	s_game
 void	ai_move(t_game *game, t_slot player);
 
 /*
+** check_slot_left.c
+*/
+int		check_high_left(t_game *game, t_slot player, t_pos pos);
+int		check_left(t_game *game, t_slot player, t_pos pos);
+int		check_diag3(t_game *game, t_pos pos, t_slot slot, int rtn);
+int		check_low_left(t_game *game, t_slot player, t_pos pos);
+
+/*
+** check_slot_low.c
+*/
+int		check_vert2(t_game *game, t_pos pos, t_slot slot, int rtn);
+int		check_low(t_game *game, t_slot player, t_pos pos);
+int		check_diag4(t_game *game, t_pos pos, t_slot slot, int rtn);
+int		check_low_right(t_game *game, t_slot player, t_pos pos);
+
+/*
+** check_slot_right.c
+*/
+int		check_high_right(t_game *game, t_slot player, t_pos pos);
+int		check_hor2(t_game *game, t_pos pos, t_slot slot, int rtn);
+int		check_right(t_game *game, t_slot player, t_pos pos);
+
+/*
 ** detect_line.c
 */
+int		check_vert(t_game *game, t_pos pos, t_slot slot, int rtn);
+int		check_diag1(t_game *game, t_pos pos, t_slot slot, int rtn);
+int		check_diag2(t_game *game, t_pos pos, t_slot slot, int rtn);
+int		check_hor(t_game *game, t_pos pos, t_slot slot, int rtn);
 int		game_is_over(t_game *game);
 
 /*
