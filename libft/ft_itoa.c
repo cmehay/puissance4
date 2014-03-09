@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 10:10:23 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/08 09:53:19 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/09 21:56:45 by svermeer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char		*ft_initmem(int size, int64_t n)
 {
-	char	*str;
+	char		*str;
 
 	if (n < 0)
 		size++;
@@ -24,7 +24,7 @@ static char		*ft_initmem(int size, int64_t n)
 
 static char		*ft_charcat(char *s1, char c)
 {
-	int	i;
+	int			i;
 
 	i = 0;
 	while (s1[i])

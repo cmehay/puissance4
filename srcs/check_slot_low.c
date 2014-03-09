@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/09 19:15:45 by cmehay            #+#    #+#             */
-/*   Updated: 2014/03/09 21:35:13 by cmehay           ###   ########.fr       */
+/*   Updated: 2014/03/09 22:00:49 by svermeer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	check_vert2(t_game *game, t_pos pos, t_slot slot, int rtn)
 {
-	if (pos.row  < game->pos.row && game->grid[pos.col][pos.row++].slot == slot)
+	if (pos.row < game->pos.row && game->grid[pos.col][pos.row++].slot == slot)
 		return (check_vert2(game, pos, slot, ++rtn));
 	return (rtn);
 }
